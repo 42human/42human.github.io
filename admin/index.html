@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin panel | MindMark</title>
+<meta name="description" content="MindMark administrator panel.">
+<link rel="icon" href="/images/brand/mindmark-icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#F6F3EE">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root { --ink:#14161B; --paper:#F6F3EE; --coral:#E2543C; --line:rgba(20,22,27,.12); }
+  * { box-sizing:border-box; }
+  body.guarded { visibility:hidden; }
+  body {
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a { color:inherit; }
+  .bar {
+    display:flex; align-items:center; justify-content:space-between; gap:18px;
+    max-width:1120px; margin:0 auto; padding:26px 28px; flex-wrap:wrap;
+  }
+  .brand img { display:block; width:132px; height:auto; }
+  .bar-right { display:flex; align-items:center; gap:10px; }
+  .ghost {
+    display:inline-flex; align-items:center; height:40px; padding:0 18px;
+    border:1.5px solid var(--ink); border-radius:12px; background:transparent;
+    color:var(--ink); font:inherit; font-size:14.5px; font-weight:500;
+    text-decoration:none; cursor:pointer;
+  }
+  .ghost:hover { background:var(--ink); color:var(--paper); }
+  .wrap { max-width:1120px; margin:0 auto; padding:10px 28px 90px; }
+  .eyebrow {
+    margin:26px 0 10px; font-size:12px; font-weight:600; letter-spacing:2.4px;
+    text-transform:uppercase; color:rgba(20,22,27,.55);
+  }
+  h1 { margin:0 0 10px; font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:clamp(34px,5vw,52px); line-height:1.05; letter-spacing:-.5px; }
+  .lede { margin:0 0 26px; max-width:60ch; color:rgba(20,22,27,.68); }
+  .lede strong { color:var(--ink); font-weight:600; }
+
+  .tabs { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 26px; }
+  .tab {
+    display:inline-flex; align-items:center; gap:8px; height:42px; padding:0 18px;
+    border:1px solid var(--line); border-radius:999px; background:#fff;
+    font:inherit; font-size:14.5px; font-weight:500; color:rgba(20,22,27,.72);
+    cursor:pointer;
+  }
+  .tab:hover { border-color:rgba(20,22,27,.35); }
+  .tab[aria-selected="true"] { background:var(--ink); border-color:var(--ink); color:#fff; }
+  .tab .count {
+    display:inline-flex; align-items:center; justify-content:center; min-width:22px; height:22px;
+    padding:0 7px; border-radius:999px; background:rgba(20,22,27,.08);
+    font-size:12px; font-weight:600; line-height:1;
+  }
+  .tab[aria-selected="true"] .count { background:rgba(255,255,255,.2); }
+
+  .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:22px; }
+  .card {
+    display:flex; flex-direction:column; gap:8px; padding:24px 24px 22px;
+    border:1px solid var(--line); border-radius:18px; background:#fff;
+  }
+  .card span { font-size:12.5px; letter-spacing:1.6px; text-transform:uppercase; color:rgba(20,22,27,.55); font-weight:600; }
+  .card b { font-family:"Fraunces",Georgia,serif; font-size:40px; font-weight:600; line-height:1; }
+
+  .panel { border:1px solid var(--line); border-radius:20px; background:#fff; overflow:hidden; }
+  .panel + .panel { margin-top:22px; }
+  .panel-head {
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:22px 24px; border-bottom:1px solid var(--line); flex-wrap:wrap;
+  }
+  .panel-head h2 { margin:0; font-family:"Fraunces",Georgia,serif; font-size:22px; font-weight:600; }
+  .panel-head input {
+    width:250px; max-width:100%; height:42px; padding:0 14px;
+    border:1px solid var(--line); border-radius:11px; background:var(--paper);
+    font:inherit; font-size:14.5px; color:var(--ink);
+  }
+  .panel-head input:focus { outline:2px solid var(--coral); outline-offset:1px; }
+  .table-wrap { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; min-width:520px; }
+  th, td { padding:16px 24px; text-align:left; border-bottom:1px solid var(--line); font-size:15px; }
+  th { font-size:12px; letter-spacing:1.4px; text-transform:uppercase; color:rgba(20,22,27,.55); font-weight:600; }
+  tbody tr:last-child td { border-bottom:0; }
+  td.user { font-weight:600; }
+  td.courses { max-width:360px; color:rgba(20,22,27,.75); }
+  .badge {
+    display:inline-flex; align-items:center; height:26px; padding:0 11px;
+    border-radius:999px; font-size:12px; font-weight:600; letter-spacing:.6px;
+    text-transform:uppercase; border:1px solid var(--line); background:var(--paper);
+  }
+  .badge.admin { background:var(--coral); border-color:var(--coral); color:#fff; }
+  tbody tr {
+    animation:rowIn .18s ease both; background:transparent;
+    transition:background-color .4s ease; scroll-margin:24px;
+  }
+  tbody tr.row-hit { background:rgba(226,84,60,.12); }
+  td.user mark { background:rgba(226,84,60,.16); color:inherit; border-radius:3px; padding:0 1px; }
+  @keyframes rowIn { from { opacity:0; transform:translateY(3px); } to { opacity:1; transform:none; } }
+  @media (prefers-reduced-motion:reduce) { tbody tr { animation:none; } }
+  .empty { margin:0; padding:28px 24px; color:rgba(20,22,27,.6); }
+
+  .msg-list { display:grid; }
+  .msg { padding:22px 24px; border-bottom:1px solid var(--line); }
+  .msg:last-child { border-bottom:0; }
+  .msg header { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .msg h3 { margin:0 0 4px; font-size:16.5px; font-weight:600; }
+  .msg .meta { margin:0; font-size:13.5px; color:rgba(20,22,27,.58); }
+  .msg .meta span + span::before { content:" · "; }
+  .msg p.body { margin:10px 0 0; color:rgba(20,22,27,.78); white-space:pre-wrap; overflow-wrap:anywhere; }
+  .msg .when {
+    flex:0 0 auto; font-size:12.5px; font-weight:600; letter-spacing:.4px;
+    text-transform:uppercase; color:rgba(20,22,27,.5);
+  }
+  .msg .tagline {
+    display:inline-flex; align-items:center; height:24px; padding:0 10px; margin-bottom:8px;
+    border-radius:999px; background:rgba(226,84,60,.1); color:#9B3623;
+    font-size:11.5px; font-weight:600; letter-spacing:.8px; text-transform:uppercase;
+  }
+  @media (max-width:720px) {
+    .stats { grid-template-columns:1fr 1fr; }
+    .bar, .wrap { padding-left:20px; padding-right:20px; }
+    th, td { padding:14px 18px; }
+    .msg { padding:18px; }
+  }
+</style>
+</head>
+<body class="guarded">
+<header class="bar">
+  <a class="brand" href="/"><img src="/images/brand/mindmark-lockup.svg" alt="MindMark"></a>
+  <div class="bar-right">
+    <a class="ghost" href="/">View site</a>
+    <button class="ghost" type="button" data-logout>Sign out</button>
+  </div>
+</header>
+<main class="wrap">
+  <p class="eyebrow">Admin</p>
+  <h1>Admin panel</h1>
+  <p class="lede">Accounts, feedback and contact messages created in this browser. Signed in as <strong data-admin-name>—</strong>.</p>
+
+  <nav class="tabs" role="tablist" aria-label="Admin sections">
+    <button class="tab" type="button" role="tab" data-tab="overview" aria-selected="true">Overview</button>
+    <button class="tab" type="button" role="tab" data-tab="feedback" aria-selected="false">Feedback <span class="count" data-count-feedback>0</span></button>
+    <button class="tab" type="button" role="tab" data-tab="contact" aria-selected="false">Contact messages <span class="count" data-count-contact>0</span></button>
+  </nav>
+
+  <section data-panel="overview">
+    <div class="stats" aria-label="Account totals">
+      <div class="card"><span>Accounts</span><b data-total>0</b></div>
+      <div class="card"><span>Students</span><b data-students>0</b></div>
+      <div class="card"><span>Admins</span><b data-admins>0</b></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Accounts</h2>
+        <input type="search" data-filter placeholder="Search usernames" aria-label="Search usernames">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Username</th><th>Role</th><th>Enrolled in</th></tr></thead>
+          <tbody data-rows></tbody>
+        </table>
+        <p class="empty" data-empty hidden>No accounts match.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-panel="feedback" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2>Feedback</h2></div>
+      <div class="msg-list" data-feedback-list></div>
+      <p class="empty" data-feedback-empty>No feedback yet. Messages sent from the Feedback tab on a student profile appear here.</p>
+    </div>
+  </section>
+
+  <section data-panel="contact" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2>Contact messages</h2></div>
+      <div class="msg-list" data-contact-list></div>
+      <p class="empty" data-contact-empty>No contact messages yet. Anything sent through the Contact Us form appears here.</p>
+    </div>
+  </section>
+</main>
+<script>
+(function () {
+  var USER_KEY = "mindmark_copy_user";
+  var SESSION_COOKIE = "mindmark_session_user";
+  var ACCOUNTS_KEY = "mindmark_copy_accounts";
+  var FEEDBACK_KEY = "mindmark_copy_feedback";
+  var CONTACT_KEY = "mindmark_contact_messages";
+  var ENROLL_KEY = "mindmark_copy_enrollments";
+  var ADMIN_USER = "42mahinlabib";
+
+  function sessionUser() {
+    var match = document.cookie.match(new RegExp("(?:^|;\\s*)" + SESSION_COOKIE + "=([^;]+)"));
+    return match ? decodeURIComponent(match[1]) : "";
+  }
+
+  function read(key, fallback) {
+    try {
+      var raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : fallback;
+    } catch (e) {
+      return fallback;
+    }
+  }
+
+  function esc(value) {
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function stamp(value) {
+    if (!value) return "—";
+    var date = new Date(value);
+    if (isNaN(date.getTime())) return "—";
+    return date.toLocaleString(undefined, {
+      month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit"
+    });
+  }
+
+  var user = localStorage.getItem(USER_KEY) || sessionUser() || "";
+  var stored = read(ACCOUNTS_KEY, {});
+  if (user !== ADMIN_USER) {
+    window.location.replace("/auth/login/");
+    return;
+  }
+
+  document.body.classList.remove("guarded");
+  document.querySelector("[data-admin-name]").textContent = user;
+
+  /* ---------- accounts ---------- */
+  var enrollments = read(ENROLL_KEY, {});
+
+  function courseLabel(name) {
+    var list = Array.isArray(enrollments[name]) ? enrollments[name] : [];
+    var titles = list.map(function (course) {
+      return course && (course.title || course.slug);
+    }).filter(Boolean);
+    return titles.length ? titles.join(", ") : "—";
+  }
+
+  var rows = [{ name: ADMIN_USER, role: "admin", courses: courseLabel(ADMIN_USER) }].concat(
+    Object.keys(stored).filter(function (name) {
+      return name !== ADMIN_USER;
+    }).map(function (name) {
+      var item = stored[name];
+      var role = item && typeof item === "object" && item.role === "admin" ? "admin" : "student";
+      return {
+        name: name,
+        role: role,
+        courses: courseLabel(name)
+      };
+    })
+  ).sort(function (a, b) {
+    if (a.role !== b.role) return a.role === "admin" ? -1 : 1;
+    return a.name.localeCompare(b.name);
+  });
+
+  document.querySelector("[data-total]").textContent = rows.length;
+  document.querySelector("[data-students]").textContent = rows.filter(function (r) { return r.role === "student"; }).length;
+  document.querySelector("[data-admins]").textContent = rows.filter(function (r) { return r.role === "admin"; }).length;
+
+  var body = document.querySelector("[data-rows]");
+  var empty = document.querySelector("[data-empty]");
+  var filter = document.querySelector("[data-filter]");
+
+  function highlightName(name, term) {
+    var at = term ? name.toLowerCase().indexOf(term) : -1;
+    if (at === -1) return esc(name);
+    return esc(name.slice(0, at)) + "<mark>" + esc(name.slice(at, at + term.length)) + "</mark>" + esc(name.slice(at + term.length));
+  }
+
+  function targetRow(term) {
+    if (!term) return null;
+    return body.querySelector('tr[data-name="' + term.replace(/"/g, '') + '"]') || body.querySelector("tr[data-name]");
+  }
+
+  function goToRow(row) {
+    if (!row) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var rect = row.getBoundingClientRect();
+    var fullyVisible = rect.top >= 72 && rect.bottom <= window.innerHeight - 16;
+    row.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: fullyVisible ? "nearest" : "center" });
+    row.classList.remove("row-hit");
+    void row.offsetWidth;
+    row.classList.add("row-hit");
+    window.setTimeout(function () { row.classList.remove("row-hit"); }, 1500);
+  }
+
+  function renderAccounts() {
+    var term = (filter.value || "").trim().toLowerCase();
+    var list = rows.filter(function (r) { return !term || r.name.toLowerCase().indexOf(term) !== -1; });
+    body.innerHTML = list.map(function (r) {
+      return '<tr data-name="' + esc(r.name.toLowerCase()) + '"><td class="user">' + highlightName(r.name, term) + "</td>" +
+        '<td><span class="badge ' + r.role + '">' + (r.role === "admin" ? "Admin" : "Student") + "</span></td>" +
+        '<td class="courses">' + esc(r.courses) + "</td></tr>";
+    }).join("");
+    empty.hidden = list.length > 0;
+  }
+
+  renderAccounts();
+  var searchTimer = null;
+  filter.addEventListener("input", function () {
+    renderAccounts();
+    window.clearTimeout(searchTimer);
+    var term = (filter.value || "").trim().toLowerCase();
+    if (!term) return;
+    searchTimer = window.setTimeout(function () {
+      var row = targetRow(term);
+      if (!row) return;
+      var isExact = rows.some(function (r) { return r.name.toLowerCase() === term; });
+      var rect = row.getBoundingClientRect();
+      if (isExact || rect.top < 0 || rect.bottom > window.innerHeight) goToRow(row);
+    }, 280);
+  });
+  filter.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      window.clearTimeout(searchTimer);
+      goToRow(targetRow((filter.value || "").trim().toLowerCase()));
+    } else if (event.key === "Escape") {
+      filter.value = "";
+      renderAccounts();
+    }
+  });
+
+  function reloadCourses() {
+    enrollments = read(ENROLL_KEY, {});
+    rows.forEach(function (row) {
+      row.courses = courseLabel(row.name);
+    });
+    renderAccounts();
+  }
+
+  window.addEventListener("focus", reloadCourses);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) reloadCourses();
+  });
+
+  /* ---------- feedback ---------- */
+  var feedback = read(FEEDBACK_KEY, []).slice().sort(function (a, b) {
+    return (b.at || 0) - (a.at || 0);
+  });
+  document.querySelector("[data-count-feedback]").textContent = feedback.length;
+
+  var feedbackList = document.querySelector("[data-feedback-list]");
+  var feedbackEmpty = document.querySelector("[data-feedback-empty]");
+  if (feedback.length) {
+    feedbackEmpty.hidden = true;
+    feedbackList.innerHTML = feedback.map(function (item) {
+      return '<article class="msg">' +
+        "<header><div>" +
+        '<h3>' + esc(item.type || "Feedback") + "</h3>" +
+        '<p class="meta"><span>' + esc(item.user || "unknown") + "</span><span>" + esc(stamp(item.at)) + "</span></p>" +
+        "</div></header>" +
+        '<p class="body">' + esc(item.message || "") + "</p>" +
+        "</article>";
+    }).join("");
+  }
+
+  /* ---------- contact messages ---------- */
+  var contacts = read(CONTACT_KEY, []).slice().sort(function (a, b) {
+    return (b.at || 0) - (a.at || 0);
+  });
+  document.querySelector("[data-count-contact]").textContent = contacts.length;
+
+  var contactList = document.querySelector("[data-contact-list]");
+  var contactEmpty = document.querySelector("[data-contact-empty]");
+  if (contacts.length) {
+    contactEmpty.hidden = true;
+    contactList.innerHTML = contacts.map(function (item) {
+      var who = [item.name, item.email, item.phone].filter(Boolean);
+      return '<article class="msg">' +
+        "<header><div>" +
+        (item.subject ? '<span class="tagline">Contact</span>' : "") +
+        "<h3>" + esc(item.subject || "No subject") + "</h3>" +
+        '<p class="meta"><span>' + esc(who.join(" · ") || "Unknown sender") + "</span><span>" + esc(stamp(item.at)) + "</span></p>" +
+        "</div></header>" +
+        '<p class="body">' + esc(item.message || "") + "</p>" +
+        "</article>";
+    }).join("");
+  }
+
+  /* ---------- tabs ---------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll("[data-tab]"));
+  function show(name) {
+    tabs.forEach(function (tab) {
+      tab.setAttribute("aria-selected", tab.getAttribute("data-tab") === name ? "true" : "false");
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-panel]"), function (panel) {
+      panel.hidden = panel.getAttribute("data-panel") !== name;
+    });
+  }
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      show(tab.getAttribute("data-tab"));
+    });
+  });
+
+  document.querySelector("[data-logout]").addEventListener("click", function () {
+    localStorage.removeItem(USER_KEY);
+    document.cookie = SESSION_COOKIE + "=; Max-Age=0; path=/";
+    window.location.href = "/auth/login/";
+  });
+})();
+</script>
+</body>
+</html>

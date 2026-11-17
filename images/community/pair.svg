@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" role="img" aria-labelledby="t">
+<title id="t">Two students comparing practice results</title>
+<rect width="600" height="400" fill="#F6F3EE"/>
+<circle cx="300" cy="216" r="176" fill="#E2543C" opacity=".08"/>
+<g fill="#E2543C" opacity=".45">
+  <circle cx="486" cy="52" r="3"/><circle cx="518" cy="52" r="3"/><circle cx="550" cy="52" r="3"/>
+  <circle cx="486" cy="82" r="3"/><circle cx="518" cy="82" r="3"/><circle cx="550" cy="82" r="3"/>
+  <circle cx="486" cy="112" r="3"/><circle cx="518" cy="112" r="3"/><circle cx="550" cy="112" r="3"/>
+</g>
+
+<!-- left student -->
+<rect x="208" y="266" width="28" height="58" rx="4" fill="#B97850"/>
+<path d="M150 400c0-52 32-84 72-84s72 32 72 84z" fill="#1F2A24"/>
+<circle cx="222" cy="232" r="42" fill="#B97850"/>
+<path d="M180 230c0-29 19-50 42-50s42 21 42 50c0 7-5 9-10 5-9-8-20-12-32-12s-23 4-32 12c-5 4-10 2-10-5z" fill="#14161B"/>
+<circle cx="209" cy="236" r="3.2" fill="#14161B"/>
+<circle cx="235" cy="236" r="3.2" fill="#14161B"/>
+<path d="M211 253c6 6 16 6 22 0" fill="none" stroke="#14161B" stroke-width="3" stroke-linecap="round"/>
+
+<!-- right student -->
+<rect x="363" y="266" width="28" height="58" rx="4" fill="#E8B48A"/>
+<path d="M306 400c0-52 31-84 71-84s71 32 71 84z" fill="#E2543C"/>
+<circle cx="377" cy="232" r="42" fill="#E8B48A"/>
+<circle cx="377" cy="182" r="14" fill="#3B2A20"/>
+<path d="M335 230c0-29 19-50 42-50s42 21 42 50c0 7-5 9-10 5-9-8-20-12-32-12s-23 4-32 12c-5 4-10 2-10-5z" fill="#3B2A20"/>
+<circle cx="364" cy="236" r="3.2" fill="#14161B"/>
+<circle cx="390" cy="236" r="3.2" fill="#14161B"/>
+<path d="M366 253c6 6 16 6 22 0" fill="none" stroke="#14161B" stroke-width="3" stroke-linecap="round"/>
+
+<!-- shared notebook -->
+<g transform="rotate(-4 300 344)">
+  <rect x="206" y="312" width="192" height="64" rx="8" fill="#fff"/>
+  <rect x="206" y="312" width="16" height="64" rx="6" fill="#E2543C"/>
+  <rect x="238" y="328" width="120" height="7" rx="3.5" fill="#DCD3C6"/>
+  <rect x="238" y="344" width="92" height="7" rx="3.5" fill="#DCD3C6"/>
+  <path d="M356 338l9 9 17-19" fill="none" stroke="#1F2A24" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+
+<!-- bubble -->
+<rect x="404" y="140" width="132" height="72" rx="18" fill="#fff"/>
+<path d="M432 212l-8 28 34-28z" fill="#fff"/>
+<rect x="426" y="160" width="84" height="9" rx="4.5" fill="#DCD3C6"/>
+<rect x="426" y="180" width="56" height="9" rx="4.5" fill="#E2543C"/>
+</svg>

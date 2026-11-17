@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 640" width="800" height="640" role="img" aria-labelledby="t">
+<title id="t">Three students working through SAT practice questions together</title>
+<rect width="800" height="640" fill="#F6F3EE"/>
+<circle cx="400" cy="300" r="258" fill="#E2543C" opacity=".07"/>
+<g fill="#E2543C" opacity=".45">
+  <circle cx="648" cy="64" r="3"/><circle cx="684" cy="64" r="3"/><circle cx="720" cy="64" r="3"/>
+  <circle cx="648" cy="96" r="3"/><circle cx="684" cy="96" r="3"/><circle cx="720" cy="96" r="3"/>
+  <circle cx="648" cy="128" r="3"/><circle cx="684" cy="128" r="3"/><circle cx="720" cy="128" r="3"/>
+</g>
+
+<!-- speech bubble -->
+<rect x="118" y="132" width="186" height="98" rx="20" fill="#fff"/>
+<path d="M168 228l-8 32 38-32z" fill="#fff"/>
+<rect x="142" y="156" width="120" height="10" rx="5" fill="#DCD3C6"/>
+<rect x="142" y="178" width="94" height="10" rx="5" fill="#DCD3C6"/>
+<rect x="142" y="200" width="64" height="10" rx="5" fill="#E2543C"/>
+
+<!-- left student -->
+<rect x="216" y="336" width="28" height="60" rx="4" fill="#B97850"/>
+<path d="M166 452c0-40 28-66 64-66s64 26 64 66z" fill="#1F2A24"/>
+<circle cx="230" cy="300" r="44" fill="#B97850"/>
+<path d="M186 298c0-31 20-52 44-52s44 21 44 52c0 7-6 10-11 5-9-9-20-13-33-13s-24 4-33 13c-5 5-11 2-11-5z" fill="#14161B"/>
+<circle cx="217" cy="304" r="3.2" fill="#14161B"/>
+<circle cx="243" cy="304" r="3.2" fill="#14161B"/>
+<path d="M219 321c6 6 16 6 22 0" fill="none" stroke="#14161B" stroke-width="3" stroke-linecap="round"/>
+
+<!-- centre student -->
+<rect x="386" y="320" width="28" height="66" rx="4" fill="#E8B48A"/>
+<path d="M330 452c0-42 30-70 70-70s70 28 70 70z" fill="#E2543C"/>
+<circle cx="400" cy="284" r="46" fill="#E8B48A"/>
+<circle cx="400" cy="228" r="15" fill="#3B2A20"/>
+<path d="M354 282c0-32 21-54 46-54s46 22 46 54c0 8-6 11-12 6-10-9-21-14-34-14s-24 5-34 14c-6 5-12 2-12-6z" fill="#3B2A20"/>
+<circle cx="386" cy="289" r="3.2" fill="#14161B"/>
+<circle cx="414" cy="289" r="3.2" fill="#14161B"/>
+<path d="M388 306c7 7 18 7 25 0" fill="none" stroke="#14161B" stroke-width="3" stroke-linecap="round"/>
+
+<!-- right student -->
+<rect x="558" y="336" width="26" height="56" rx="4" fill="#F2CBA6"/>
+<path d="M508 452c0-40 27-66 62-66s62 26 62 66z" fill="#E9C46A"/>
+<circle cx="571" cy="300" r="43" fill="#F2CBA6"/>
+<path d="M528 296c0-29 19-50 43-50s43 21 43 50c0 7-5 9-10 5-8-7-19-11-33-11s-25 4-33 11c-5 4-10 2-10-5z" fill="#14161B"/>
+<circle cx="557" cy="301" r="11" fill="none" stroke="#14161B" stroke-width="3"/>
+<circle cx="585" cy="301" r="11" fill="none" stroke="#14161B" stroke-width="3"/>
+<path d="M568 301h6" stroke="#14161B" stroke-width="3"/>
+<path d="M562 320c5 5 13 5 18 0" fill="none" stroke="#14161B" stroke-width="3" stroke-linecap="round"/>
+
+<!-- table -->
+<rect x="96" y="444" width="608" height="10" rx="4" fill="#2A2D34"/>
+<rect x="96" y="452" width="608" height="18" rx="5" fill="#14161B"/>
+<ellipse cx="400" cy="488" rx="286" ry="12" fill="#14161B" opacity=".06"/>
+
+<!-- laptop -->
+<rect x="352" y="352" width="104" height="86" rx="7" fill="#14161B"/>
+<rect x="360" y="360" width="88" height="70" rx="4" fill="#F6F3EE"/>
+<rect x="370" y="372" width="40" height="7" rx="3.5" fill="#E2543C"/>
+<rect x="370" y="388" width="66" height="6" rx="3" fill="#CDC4B6"/>
+<rect x="370" y="402" width="52" height="6" rx="3" fill="#CDC4B6"/>
+<path d="M330 452h148l13 11H317z" fill="#2A2D34"/>
+
+<!-- notebook -->
+<g transform="rotate(-7 240 436)">
+  <rect x="188" y="414" width="104" height="44" rx="5" fill="#fff"/>
+  <rect x="188" y="414" width="13" height="44" rx="4" fill="#E2543C"/>
+  <rect x="214" y="428" width="60" height="6" rx="3" fill="#DCD3C6"/>
+  <rect x="214" y="440" width="42" height="6" rx="3" fill="#DCD3C6"/>
+</g>
+
+<!-- cup -->
+<rect x="508" y="404" width="40" height="48" rx="9" fill="#fff"/>
+<circle cx="550" cy="428" r="14" fill="none" stroke="#fff" stroke-width="7"/>
+<rect x="518" y="416" width="20" height="5" rx="2.5" fill="#DCD3C6"/>
+
+<!-- check bubble -->
+<circle cx="656" cy="176" r="38" fill="#E2543C"/>
+<path d="M638 176l12 12 23-25" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+<!-- pencil -->
+<g transform="rotate(12 640 430)">
+  <rect x="612" y="424" width="88" height="10" rx="3" fill="#E9C46A"/>
+  <path d="M700 424l16 5-16 5z" fill="#F2CBA6"/>
+  <rect x="612" y="424" width="10" height="10" rx="3" fill="#E2543C"/>
+</g>
+</svg>

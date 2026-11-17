@@ -1,0 +1,430 @@
+.mindmark-account-page .ic_my_profile_card_body {
+  padding: 28px;
+}
+
+.mindmark-account-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.mindmark-account-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #e6f3f3;
+  color: #015077;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.mindmark-account-head h3 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  color: #101010;
+}
+
+.mindmark-account-head p {
+  margin: 0;
+  color: #667085;
+  font-size: 14px;
+}
+
+.mindmark-form {
+  max-width: 560px;
+}
+
+.mindmark-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 24px;
+}
+
+.mindmark-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.mindmark-field.full {
+  grid-column: 1 / -1;
+}
+
+.mindmark-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #344054;
+}
+
+.mindmark-field input,
+.mindmark-field select,
+.mindmark-field textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  padding: 11px 12px;
+  font: inherit;
+  color: #101828;
+  background: #fff;
+  outline: none;
+}
+
+.mindmark-field input:focus,
+.mindmark-field select:focus,
+.mindmark-field textarea:focus {
+  border-color: #015077;
+  box-shadow: 0 0 0 3px rgba(1, 80, 119, 0.1);
+}
+
+.mindmark-field input[readonly] {
+  background: #f6f8fa;
+  color: #667085;
+}
+
+.mindmark-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.mindmark-form-error {
+  display: none;
+  color: #b42318;
+  background: #fef3f2;
+  border: 1px solid #fecdca;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.mindmark-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #015077;
+  background: #015077;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.mindmark-btn:hover {
+  background: #013f5c;
+  border-color: #013f5c;
+  color: #fff;
+}
+
+.mindmark-btn.ghost {
+  background: #fff;
+  color: #015077;
+}
+
+.mindmark-btn.ghost:hover {
+  background: #f0f7f9;
+  color: #015077;
+}
+
+.mindmark-btn.danger {
+  background: #b42318;
+  border-color: #b42318;
+}
+
+.mindmark-btn.danger:hover {
+  background: #912018;
+  border-color: #912018;
+}
+
+.mindmark-btn.small {
+  padding: 7px 12px;
+  font-size: 13px;
+}
+
+.mindmark-account-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.mindmark-account-toolbar p {
+  margin: 0;
+  color: #667085;
+  font-size: 14px;
+}
+
+.mindmark-account-empty {
+  border: 1px dashed #d0d5dd;
+  border-radius: 10px;
+  padding: 36px 24px;
+  text-align: center;
+  background: #fbfcfd;
+}
+
+.mindmark-account-empty .mindmark-empty-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #e6f3f3;
+  color: #015077;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  font-size: 22px;
+}
+
+.mindmark-account-empty h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #101828;
+}
+
+.mindmark-account-empty p {
+  margin: 0 auto 20px;
+  max-width: 460px;
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mindmark-score-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mindmark-score-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #eaecf0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: #fff;
+}
+
+.mindmark-score-item .mindmark-score-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.mindmark-score-item strong {
+  display: block;
+  color: #101828;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mindmark-score-meta {
+  display: block;
+  color: #667085;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.mindmark-score-value {
+  flex: 0 0 auto;
+  text-align: right;
+  color: #015077;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.mindmark-score-value span {
+  display: block;
+  color: #667085;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.mindmark-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f0f7f9;
+  color: #015077;
+  font-size: 11px;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.mindmark-feedback-list {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mindmark-feedback-item {
+  border: 1px solid #eaecf0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: #fbfcfd;
+}
+
+.mindmark-feedback-item header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+  color: #475467;
+  font-size: 12px;
+}
+
+.mindmark-feedback-item p {
+  margin: 0;
+  color: #344054;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+.mindmark-stars {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.mindmark-stars button {
+  border: 0;
+  background: transparent;
+  color: #d0d5dd;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+.mindmark-stars button.on {
+  color: #f5a623;
+}
+
+.mindmark-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(16, 24, 40, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.mindmark-dialog {
+  width: 100%;
+  max-width: 430px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(16, 24, 40, 0.25);
+  padding: 24px;
+}
+
+.mindmark-dialog h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #101828;
+}
+
+.mindmark-dialog-body {
+  margin: 0 0 20px;
+  color: #475467;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mindmark-dialog p {
+  margin: 0 0 20px;
+  color: #475467;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mindmark-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mindmark-menu-links a {
+  padding: 10px 12px;
+  border: 1px solid #eaecf0;
+  border-radius: 8px;
+  color: #015077;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.mindmark-menu-links a:hover {
+  background: #f0f7f9;
+}
+
+.header_ic_mobile_device_bar__sOxMF {
+  cursor: pointer;
+}
+
+.mindmark-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mindmark-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  background: #101828;
+  color: #fff;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 3100;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.25);
+}
+
+.header_login_user__biSt7 {
+  cursor: pointer;
+}
+
+.header_login_user__biSt7.mindmark-menu-open .header_ic_login_user_dropdown__fb1Q7 {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+@media (max-width: 767px) {
+  .mindmark-account-page .ic_my_profile_card_body {
+    padding: 18px;
+  }
+
+  .mindmark-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mindmark-score-item {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .mindmark-score-value {
+    text-align: left;
+  }
+}

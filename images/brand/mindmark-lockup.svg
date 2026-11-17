@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" role="img" aria-label="MindMark">
+  <g transform="translate(0,27)">
+    <path fill="#F58220" stroke="#0B2D5C" stroke-width="3.5" stroke-linejoin="round" d="M45 12C39 6 30 7 26 14C17 13 11 21 14 29C6 34 7 45 14 50C8 57 12 68 21 70C23 79 32 85 41 81C45 79 47 75 47 71L47 15C46 14 45 12 45 12Z"/>
+    <path fill="#0E9CB0" stroke="#0B2D5C" stroke-width="3.5" stroke-linejoin="round" d="M51 12C57 6 66 7 70 14C79 13 85 21 82 29C90 34 89 45 82 50C88 57 84 68 75 70C73 79 64 85 55 81C51 79 49 75 49 71L49 15C50 14 51 12 51 12Z"/>
+    <path d="M31 47L44 60L68 30" fill="none" stroke="#0B2D5C" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="105" y="96" font-family="'Trebuchet MS','Segoe UI',Arial,sans-serif" font-size="46" font-weight="700" letter-spacing="-1.8" fill="#0B2D5C">MindMark</text>
+</svg>
